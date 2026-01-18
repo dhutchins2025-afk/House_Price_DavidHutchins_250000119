@@ -6,6 +6,6 @@ Machine Learning Algorithm Used:
 
 Model persistence method used: 
 
-Live URL of the hosted application:
+Live URL of the hosted application: https://house-price-davidhutchins-250000119.onrender.com/
 
-GitHub repository link:
+GitHub repository link: https://github.com/dhutchins2025-afk/House_Price_DavidHutchins_250000119
