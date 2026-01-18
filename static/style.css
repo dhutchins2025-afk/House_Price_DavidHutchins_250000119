@@ -1,120 +1,215 @@
-* {
+/* ======================================
+   PREMIUM DESIGN SYSTEM
+   ====================================== */
+:root {
+  --bg-main: radial-gradient(circle at top left, #1f3c88, #0b132b 55%);
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --primary: #7f5cff;
+  --accent: #4fd1c5;
+  --text-main: #f8f9ff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --radius-xl: 22px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --blur: blur(18px);
+  --transition: cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
+  --glow: 0 0 40px rgba(127, 92, 255, 0.35);
+}
+
+/* ======================================
+   RESET
+   ====================================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   min-height: 100vh;
+  background: var(--bg-main);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
-/* Center only the card */
+/* ======================================
+   CENTER WRAPPER
+   ====================================== */
 .main-wrapper {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 32px;
 }
 
+/* ======================================
+   GLASS CARD
+   ====================================== */
 .card {
-  background: rgba(255,255,255,0.97);
-  padding: 30px;
+  position: relative;
   width: 100%;
-  max-width: 440px;
-  border-radius: 18px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+  max-width: 460px;
+  padding: 36px 34px 38px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.05));
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glow), 0 30px 80px rgba(0, 0, 0, 0.45);
+  animation: floatIn 0.8s ease forwards;
   text-align: center;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+/* Subtle glowing border */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(127, 92, 255, 0.5),
+      transparent);
+  opacity: 0.5;
+  pointer-events: none;
 }
 
+/* ======================================
+   ANIMATION
+   ====================================== */
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ======================================
+   HEADINGS
+   ====================================== */
 h1 {
   margin: 0;
-  color: #222;
+  font-size: 28px;
   font-weight: 700;
+  letter-spacing: -0.6px;
+  color: var(--text-main);
 }
 
 .subtitle {
-  margin: 6px 0 20px;
-  color: #666;
+  margin: 10px 0 26px;
   font-size: 14px;
+  color: var(--text-muted);
 }
 
+/* ======================================
+   FORM GRID
+   ====================================== */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 16px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   .grid {
     grid-template-columns: 1fr;
   }
 }
 
-
-input, select {
+/* ======================================
+   INPUTS
+   ====================================== */
+input,
+select {
   width: 100%;
-  padding: 11px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  padding: 13px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
   font-size: 14px;
+  outline: none;
+  transition: var(--transition);
 }
 
-input:focus, select:focus {
-  border-color: #5f2c82;
-  box-shadow: 0 0 0 3px rgba(95,44,130,0.15);
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
+input:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(127, 92, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ======================================
+   BUTTON
+   ====================================== */
 button {
-  margin-top: 22px;
+  margin-top: 28px;
   width: 100%;
-  padding: 13px;
+  padding: 15px;
+  border-radius: var(--radius-lg);
   border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #5f2c82, #49a09d);
-  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition);
+  box-shadow: 0 15px 40px rgba(79, 209, 197, 0.35);
 }
 
 button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 60px rgba(127, 92, 255, 0.45);
 }
 
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ======================================
+   RESULT
+   ====================================== */
 .result {
-  margin-top: 22px;
-  background: #eef3ff;
-  padding: 16px;
-  border-radius: 12px;
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.25);
   font-size: 18px;
-  color: #222;
   font-weight: 500;
+  color: var(--text-main);
 }
 
 .result span {
-  color: #5f2c82;
+  color: var(--accent);
   font-weight: 700;
 }
 
-/* Footer */
+/* ======================================
+   FOOTER
+   ====================================== */
 footer {
-  margin-top: 20px;
-  padding: 12px 0;
-  width: 100%;
+  padding: 16px 0;
   text-align: center;
-  color: #e0e0e0;
   font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 footer p {
