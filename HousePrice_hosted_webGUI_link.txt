@@ -1,0 +1,11 @@
+Name: David Hutchins
+
+Matric Number: 250000119
+
+Machine Learning Algorithm Used: 
+
+Model persistence method used: 
+
+Live URL of the hosted application:
+
+GitHub repository link:
