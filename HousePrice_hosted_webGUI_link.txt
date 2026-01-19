@@ -1,0 +1,11 @@
+Name : Adeoye Samuel
+
+Matric Number : 250000511  
+
+Machine Learning Algorithm Used
+
+Model persistence method used: Joblib
+
+Live URL of the hosted application : https://predicting-house-price-hie8.onrender.com/
+
+GitHub repository link : https://github.com/Sammyregt/HousePrice_Project_Adeoye_Samuel_250000511
