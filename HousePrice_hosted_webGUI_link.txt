@@ -2,9 +2,9 @@ Name: David Hutchins
 
 Matric Number: 250000119
 
-Machine Learning Algorithm Used: 
+Machine Learning Algorithm Used: Random Forest Regressor (Scikit-learn)
 
-Model persistence method used: 
+Model persistence method used: Joblib
 
 Live URL of the hosted application: https://house-price-davidhutchins-250000119.onrender.com/
 
