@@ -4,7 +4,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-model = joblib.load("model/random_forest_model.joblib")
+model = joblib.load("model/house_price_model.joblib")
 scaler = joblib.load("model/scaler.joblib")
 columns = json.load(open("model/columns.json"))
 
